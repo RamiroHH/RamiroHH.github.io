@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramiro Hernandez — Desarrollador Fullstack Jr.</title>
+<meta name="description" content="Portfolio de Ramiro Hernandez, desarrollador Fullstack Jr. especializado en Java, Spring Boot y React.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #12150f;
+    --surface: #191d14;
+    --surface-2: #202519;
+    --paper: #eceee1;
+    --paper-dim: #b9bdac;
+    --line: #33392a;
+    --mint: #6fcf97;
+    --mint-dim: #4f9d70;
+    --amber: #e3a857;
+    --amber-dim: #b6853f;
+    --radius: 2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .display{font-family:'Space Grotesk', sans-serif;}
+
+  a{color:inherit;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(18,21,15,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; letter-spacing:0.02em;
+    color:var(--mint);
+    text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--amber); display:inline-block;}
+  .navlinks{display:flex; gap:28px; font-size:13px; font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .navlinks a{text-decoration:none; color:var(--paper-dim); transition:color .2s ease;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--mint);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 72px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:800px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--amber);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:20px;
+  }
+  .eyebrow::before{
+    content:""; width:28px; height:1px; background:var(--amber-dim);
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(38px, 6vw, 60px);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+  }
+  h1 .accent{color:var(--mint);}
+  .role{
+    margin-top:18px;
+    font-size:19px;
+    color:var(--paper-dim);
+    max-width:46ch;
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-primary{ background:var(--mint); color:#0e1109; font-weight:600; }
+  .btn-primary:hover{ background:#83e0ab; transform:translateY(-1px); }
+  .btn-ghost{ border:1px solid var(--line); color:var(--paper); }
+  .btn-ghost:hover{ border-color:var(--mint-dim); color:var(--mint); transform:translateY(-1px); }
+
+  /* barcode signature element */
+  .scanner{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 22px;
+    overflow:hidden;
+  }
+  .scanner-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--paper-dim);
+    display:flex; justify-content:space-between; margin-bottom:16px;
+  }
+  .scanner-label .live{color:var(--mint);}
+  .barcode{
+    display:flex; align-items:flex-end; gap:3px; height:64px; margin-bottom:14px;
+    position:relative;
+  }
+  .barcode span{
+    display:block; background:var(--paper-dim); opacity:0.85;
+  }
+  .scanline{
+    position:absolute; left:0; right:0; height:2px;
+    background:linear-gradient(90deg, transparent, var(--mint), transparent);
+    box-shadow:0 0 8px var(--mint);
+    animation:scan 2.6s ease-in-out infinite;
+  }
+  @keyframes scan{
+    0%,100%{ top:2px; opacity:0.9; }
+    50%{ top:calc(100% - 4px); opacity:0.9; }
+  }
+  .scanner-rows{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--paper-dim); display:grid; gap:6px; }
+  .scanner-rows .row{ display:flex; justify-content:space-between; border-top:1px dashed var(--line); padding-top:6px; }
+  .scanner-rows .row b{ color:var(--paper); font-weight:500; }
+  .status-ok{color:var(--mint);}
+  .status-warn{color:var(--amber);}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{ padding:76px 0; border-bottom:1px solid var(--line); }
+  .section-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:36px; }
+  .section-num{ font-family:'IBM Plex Mono', monospace; color:var(--amber-dim); font-size:13px; }
+  .section-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:28px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
+  .about-text p{ color:var(--paper-dim); margin-bottom:16px; font-size:15.5px; }
+  .about-text strong{ color:var(--paper); font-weight:600; }
+  .fact-list{ display:grid; gap:0; border-top:1px solid var(--line); }
+  .fact{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .fact .k{ font-family:'IBM Plex Mono', monospace; color:var(--paper-dim); }
+  .fact .v{ color:var(--paper); text-align:right; }
+
+  /* ---------- PROJECT: FEATURED ---------- */
+  .project-feat{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  @media (max-width:800px){ .project-feat{grid-template-columns:1fr; padding:26px;} }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 22px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    border:1px solid var(--line); color:var(--paper-dim);
+    padding:5px 10px; border-radius:20px;
+  }
+  .project-feat h3{ font-family:'Space Grotesk', sans-serif; font-size:24px; font-weight:600; margin-bottom:6px; }
+  .project-feat .kicker{ font-family:'IBM Plex Mono', monospace; color:var(--amber); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px; display:block;}
+  .project-feat p.desc{ color:var(--paper-dim); font-size:15px; margin-bottom:20px; }
+  .feature-list{ list-style:none; display:grid; gap:11px; }
+  .feature-list li{ display:flex; gap:10px; font-size:14px; color:var(--paper-dim); }
+  .feature-list li::before{ content:"›"; color:var(--mint); font-weight:700; }
+  .feature-list li b{ color:var(--paper); font-weight:500; }
+  .private-note{
+    margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:12px;
+    color:var(--amber); border:1px dashed var(--amber-dim); padding:10px 14px; border-radius:4px;
+  }
+  .mock{
+    background:var(--ink); border:1px solid var(--line); border-radius:6px; padding:18px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .mock-bar{ display:flex; gap:6px; margin-bottom:6px; }
+  .mock-bar span{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+  .mock-row{ display:flex; justify-content:space-between; align-items:center; background:var(--surface-2); border-radius:4px; padding:11px 14px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--paper-dim); }
+  .mock-row b{ color:var(--paper); font-weight:500; }
+  .badge{ font-size:10.5px; padding:3px 8px; border-radius:20px; font-family:'IBM Plex Mono', monospace; }
+  .badge-ok{ background:rgba(111,207,151,0.12); color:var(--mint); }
+  .badge-warn{ background:rgba(227,168,87,0.14); color:var(--amber); }
+  .badge-crit{ background:rgba(224,110,90,0.14); color:#e06e5a; }
+
+  /* ---------- OTHER PROJECTS ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:22px; }
+  @media (max-width:700px){ .proj-grid{grid-template-columns:1fr;} }
+  .proj-card{
+    border:1px solid var(--line); border-radius:6px; padding:24px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .proj-card:hover{ border-color:var(--mint-dim); transform:translateY(-2px); }
+  .proj-card h4{ font-family:'Space Grotesk', sans-serif; font-size:18px; margin-bottom:8px; }
+  .proj-card .stack{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--amber); margin-bottom:12px; display:block;}
+  .proj-card p{ font-size:13.8px; color:var(--paper-dim); margin-bottom:14px; }
+  .proj-card a{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--mint); text-decoration:none; }
+  .proj-card a:hover{ text-decoration:underline; }
+
+  /* ---------- STACK ---------- */
+  .stack-groups{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  @media (max-width:700px){ .stack-groups{grid-template-columns:1fr 1fr;} }
+  @media (max-width:460px){ .stack-groups{grid-template-columns:1fr;} }
+  .stack-group h5{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--amber-dim); margin-bottom:12px;}
+  .stack-group ul{ list-style:none; display:grid; gap:8px; }
+  .stack-group li{ font-size:14.5px; color:var(--paper); position:relative; padding-left:14px;}
+  .stack-group li::before{ content:""; position:absolute; left:0; top:9px; width:5px; height:5px; background:var(--mint); border-radius:50%; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ border-bottom:none; padding-bottom:96px; }
+  .contact-inner{ text-align:left; }
+  .contact h2{ font-family:'Space Grotesk', sans-serif; font-size:clamp(30px,4.4vw,44px); font-weight:700; max-width:16ch; margin-bottom:18px;}
+  .contact p.lead{ color:var(--paper-dim); max-width:52ch; margin-bottom:32px; font-size:16px;}
+  .contact-links{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  footer{ padding:28px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--paper-dim); flex-wrap:wrap; gap:10px;}
+  footer a{ color:var(--paper-dim); text-decoration:none; }
+  footer a:hover{ color:var(--mint); }
+
+  ::selection{ background:var(--mint); color:#0e1109; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand"><span class="dot"></span>ramiro.dev</a>
+      <div class="navlinks">
+        <a href="#about">Sobre m&iacute;</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--line); padding-top:96px;">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Villa Mar&iacute;a, C&oacute;rdoba · Disponible para nuevas oportunidades</div>
+        <h1>Ramiro<br>Hernandez</h1>
+        <p class="role">Desarrollador <span class="accent" style="color:var(--mint)">Fullstack Jr.</span> Construyo sistemas completos de punta a punta &mdash; desde la arquitectura backend en Java y Spring Boot, hasta la interfaz en React que los pone en manos de alguien.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">Ver proyectos</a>
+          <a class="btn btn-ghost" href="#contact">Contactarme</a>
+        </div>
+      </div>
+
+      <div class="scanner" aria-hidden="true">
+        <div class="scanner-label"><span>CONTROLSAFE &mdash; MONITOR</span><span class="live">&#9679; live</span></div>
+        <div class="barcode">
+          <div class="scanline"></div>
+          <span style="width:3px;height:100%"></span>
+          <span style="width:6px;height:70%"></span>
+          <span style="width:2px;height:100%"></span>
+          <span style="width:4px;height:55%"></span>
+          <span style="width:2px;height:90%"></span>
+          <span style="width:8px;height:40%"></span>
+          <span style="width:3px;height:100%"></span>
+          <span style="width:2px;height:65%"></span>
+          <span style="width:5px;height:85%"></span>
+          <span style="width:2px;height:50%"></span>
+          <span style="width:6px;height:100%"></span>
+          <span style="width:3px;height:75%"></span>
+          <span style="width:2px;height:95%"></span>
+          <span style="width:4px;height:60%"></span>
+          <span style="width:2px;height:100%"></span>
+        </div>
+        <div class="scanner-rows">
+          <div class="row"><span>Lote #A231 &mdash; Leche 1L</span><b class="status-ok">OK · 42 d&iacute;as</b></div>
+          <div class="row"><span>Lote #B097 &mdash; Yogur nat.</span><b class="status-warn">Vence en 3 d&iacute;as</b></div>
+          <div class="row"><span>Alertas enviadas hoy</span><b>7</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">00</span><h2 class="section-title">Sobre m&iacute;</h2></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>Vengo del otro lado del mostrador.</strong> Durante a&ntilde;os trabaj&eacute; en atenci&oacute;n al p&uacute;blico y vi de cerca un problema que casi nadie resuelve bien: el control manual de vencimientos en comercios minoristas. Decid&iacute; construirle una soluci&oacute;n, y as&iacute; naci&oacute; ControlSafe, mi proyecto m&aacute;s ambicioso hasta hoy.</p>
+          <p>Me especializo en <strong>Java y Spring Boot</strong> del lado del backend, con <strong>React</strong> para las interfaces. Me interesa el desarrollo de punta a punta: dise&ntilde;ar la arquitectura, pensar los roles y permisos, y tambi&eacute;n dejar la pantalla lista para que alguien la use sin fricci&oacute;n.</p>
+          <p>Trabajo con arquitectura en capas, c&oacute;digo limpio y buenas pr&aacute;cticas &mdash; y sigo aprendiendo todos los d&iacute;as, con metodolog&iacute;a Scrum cuando trabajo en equipo.</p>
+        </div>
+        <div class="fact-list mono">
+          <div class="fact"><span class="k">Formaci&oacute;n</span><span class="v">Tecnicatura Univ. en Programaci&oacute;n<br>UTN FRVM</span></div>
+          <div class="fact"><span class="k">Foco</span><span class="v">Java · Spring Boot · React</span></div>
+          <div class="fact"><span class="k">Idiomas</span><span class="v">Espa&ntilde;ol nativo · Ingl&eacute;s B2</span></div>
+          <div class="fact"><span class="k">Ubicaci&oacute;n</span><span class="v">Villa Mar&iacute;a, C&oacute;rdoba, AR</span></div>
+          <div class="fact"><span class="k">Modalidad</span><span class="v">Remoto · H&iacute;brido · Presencial</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">01</span><h2 class="section-title">Proyecto destacado</h2></div>
+
+      <div class="project-feat">
+        <div>
+          <span class="kicker">Trabajo final de carrera · Proyecto individual</span>
+          <h3>ControlSafe</h3>
+          <p class="desc">Sistema de gesti&oacute;n de vencimientos para comercios minoristas, dise&ntilde;ado y desarrollado en solitario de punta a punta &mdash; backend, frontend y toda la l&oacute;gica de negocio.</p>
+          <div class="tag-row">
+            <span class="tag">Java</span><span class="tag">Spring Boot 3</span><span class="tag">Spring Security</span>
+            <span class="tag">JWT</span><span class="tag">MySQL</span><span class="tag">React 18</span>
+            <span class="tag">Vite</span><span class="tag">Tailwind CSS</span>
+          </div>
+          <ul class="feature-list">
+            <li><b>Autenticaci&oacute;n y roles</b> con Spring Security + JWT (ADMIN / OPERADOR), credenciales gestionadas por variables de entorno.</li>
+            <li><b>Scheduler autom&aacute;tico diario</b> que actualiza estados de vencimiento y dispara alertas por email con plantillas HTML personalizables por producto.</li>
+            <li><b>Autocompletado por c&oacute;digo de barras</b> integrando la API p&uacute;blica Open Food Facts, con soporte de esc&aacute;ner USB.</li>
+            <li><b>Reportes en PDF</b> con filtros din&aacute;micos e <b>historial de trazabilidad</b> de acciones por usuario y puesto de trabajo.</li>
+          </ul>
+          <div class="private-note">&#128274; Repositorio privado por el momento &mdash; c&oacute;digo y demo disponibles a pedido en entrevista.</div>
+        </div>
+
+        <div class="mock" aria-hidden="true">
+          <div class="mock-bar"><span></span><span></span><span></span></div>
+          <div class="mock-row"><span>Arroz Blanco 1kg</span><span class="badge badge-ok">42 d&iacute;as</span></div>
+          <div class="mock-row"><span>Fideos Guiseros</span><span class="badge badge-warn">5 d&iacute;as</span></div>
+          <div class="mock-row"><span>Leche Descremada</span><span class="badge badge-crit">Vencido</span></div>
+          <div class="mock-row"><span>Aceite de Girasol</span><span class="badge badge-ok">61 d&iacute;as</span></div>
+          <div class="mock-row" style="margin-top:6px; background:transparent; border:1px dashed var(--line); color:var(--paper-dim);"><span>&#9993; Alerta autom&aacute;tica</span><span>enviada &middot; 08:00</span></div>
+        </div>
+      </div>
+
+      <div style="height:32px;"></div>
+
+      <div class="section-head"><span class="section-num mono">02</span><h2 class="section-title">Otros proyectos</h2></div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <h4>BodyPainting</h4>
+          <span class="stack">Java · Spring Boot 3 · React 18 · PostgreSQL</span>
+          <p>E-commerce fullstack desarrollado en equipo bajo metodolog&iacute;a Scrum (3 sprints). JWT con roles, carrito, cupones, notificaciones por email y reportes de stock.</p>
+          <a href="https://github.com/RamiroHH" target="_blank" rel="noopener">Ver en GitHub &rarr;</a>
+        </div>
+        <div class="proj-card">
+          <h4>PizzaLine</h4>
+          <span class="stack">JavaScript · HTML · CSS</span>
+          <p>Aplicaci&oacute;n web con consumo de API, buscador din&aacute;mico y l&oacute;gica de carrito completa. Integraci&oacute;n frontend-backend construida desde cero.</p>
+          <a href="https://github.com/RamiroHH" target="_blank" rel="noopener">Ver en GitHub &rarr;</a>
+        </div>
+        <div class="proj-card">
+          <h4>Gesti&oacute;n de Fichajes Deportivos</h4>
+          <span class="stack">Java · MySQL</span>
+          <p>Sistema de persistencia para clubes: gesti&oacute;n de jugadores, temporadas, estad&iacute;sticas y ranking.</p>
+          <a href="https://github.com/RamiroHH" target="_blank" rel="noopener">Ver en GitHub &rarr;</a>
+        </div>
+        <div class="proj-card" style="display:flex; align-items:center; justify-content:center; border-style:dashed;">
+          <p style="margin:0; text-align:center; color:var(--paper-dim);">Pr&oacute;ximo proyecto en camino &mdash; siempre hay algo en construcci&oacute;n.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">03</span><h2 class="section-title">Stack t&eacute;cnico</h2></div>
+      <div class="stack-groups">
+        <div class="stack-group">
+          <h5>Backend</h5>
+          <ul>
+            <li>Java</li><li>Spring Boot 3</li><li>Spring Security</li><li>JWT</li><li>APIs REST</li><li>DTOs · MVC</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h5>Frontend</h5>
+          <ul>
+            <li>React 18</li><li>Vite</li><li>Tailwind CSS</li><li>JavaScript</li><li>HTML · CSS</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h5>Datos &amp; herramientas</h5>
+          <ul>
+            <li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Git &amp; GitHub</li><li>Jira · Scrum</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap contact-inner">
+      <div class="section-head"><span class="section-num mono">04</span><h2 class="section-title" style="margin:0;">Contacto</h2></div>
+      <h2>&iquest;Charlamos sobre tu equipo?</h2>
+      <p class="lead">Estoy buscando mi primera experiencia formal como desarrollador. Si mi perfil encaja con algo que est&eacute;s armando, escribime &mdash; respondo r&aacute;pido.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:ramiroh.dev@gmail.com">Enviar email</a>
+        <a class="btn btn-ghost" href="https://github.com/RamiroHH" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ramiro-hernandez-945546222" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ramiro Hernandez</span>
+    <span>Villa Mar&iacute;a, C&oacute;rdoba, Argentina</span>
+  </div>
+</footer>
+
+</body>
+</html>
