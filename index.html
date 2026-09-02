@@ -328,7 +328,7 @@
       <div class="section-head"><span class="section-num mono">00</span><h2 class="section-title">Sobre m&iacute;</h2></div>
       <div class="about-grid">
         <div class="about-text">
-          <p><strong>Vengo del otro lado del mostrador.</strong> Durante a&ntilde;os trabaj&eacute; en atenci&oacute;n al p&uacute;blico y vi de cerca un problema que casi nadie resuelve bien: el control manual de vencimientos en comercios minoristas. Decid&iacute; construirle una soluci&oacute;n, y as&iacute; naci&oacute; ControlSafe, mi proyecto m&aacute;s ambicioso hasta hoy.</p>
+          <p><strong>Vengo del otro lado del mostrador.</strong> Durante a&ntilde;os trabaj&eacute; en atenci&oacute;n al p&uacute;blico y vi de cerca un problema que casi nadie resuelve bien: el control manual de vencimientos en comercios minoristas. Decid&iacute; construirle una soluci&oacute;n, y as&iacute; naci&oacute; ControlSafe, mi proyecto m&aacute;s ambicioso hasta hoy &mdash; hoy en producci&oacute;n y en uso real por una farmacia de Villa Mar&iacute;a.</p>
           <p>Me especializo en <strong>Java y Spring Boot</strong> del lado del backend, con <strong>React</strong> para las interfaces. Me interesa el desarrollo de punta a punta: dise&ntilde;ar la arquitectura, pensar los roles y permisos, y tambi&eacute;n dejar la pantalla lista para que alguien la use sin fricci&oacute;n.</p>
           <p>Trabajo con arquitectura en capas, c&oacute;digo limpio y buenas pr&aacute;cticas &mdash; y sigo aprendiendo todos los d&iacute;as, con metodolog&iacute;a Scrum cuando trabajo en equipo.</p>
         </div>
@@ -356,24 +356,27 @@
           <div class="tag-row">
             <span class="tag">Java</span><span class="tag">Spring Boot 3</span><span class="tag">Spring Security</span>
             <span class="tag">JWT</span><span class="tag">MySQL</span><span class="tag">React 18</span>
-            <span class="tag">Vite</span><span class="tag">Tailwind CSS</span>
+            <span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Docker</span>
+            <span class="tag">Railway</span><span class="tag">Vercel</span>
           </div>
           <ul class="feature-list">
             <li><b>Autenticaci&oacute;n y roles</b> con Spring Security + JWT (ADMIN / OPERADOR), credenciales gestionadas por variables de entorno.</li>
-            <li><b>Scheduler autom&aacute;tico diario</b> que actualiza estados de vencimiento y dispara alertas por email con plantillas HTML personalizables por producto.</li>
+            <li><b>Scheduler autom&aacute;tico diario</b> que actualiza estados de vencimiento y dispara alertas por email, con alertas generales y personalizadas por producto (frecuencia configurable).</li>
             <li><b>Autocompletado por c&oacute;digo de barras</b> integrando la API p&uacute;blica Open Food Facts, con soporte de esc&aacute;ner USB.</li>
+            <li><b>Gesti&oacute;n de departamentos y usuarios</b>, con panel de administraci&oacute;n para crear, activar/desactivar y resetear accesos.</li>
             <li><b>Reportes en PDF</b> con filtros din&aacute;micos e <b>historial de trazabilidad</b> de acciones por usuario y puesto de trabajo.</li>
+            <li><b>Deploy en producci&oacute;n</b>: backend containerizado con Docker en Railway (CI/CD v&iacute;a GitHub), frontend en Vercel.</li>
           </ul>
-          <div class="private-note">&#128274; Repositorio privado por el momento &mdash; c&oacute;digo y demo disponibles a pedido en entrevista.</div>
+          <div class="private-note">&#128274; Repositorio privado por el momento &mdash; demo p&uacute;blica en <a href="https://controlsafe.vercel.app" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">controlsafe.vercel.app</a>, c&oacute;digo disponible a pedido en entrevista.</div>
         </div>
 
         <div class="mock" aria-hidden="true">
           <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-row"><span>Arroz Blanco 1kg</span><span class="badge badge-ok">42 d&iacute;as</span></div>
+          <div class="mock-row"><span>Total productos</span><span class="badge badge-ok">250+</span></div>
+          <div class="mock-row"><span>Vencimientos gestionados</span><span class="badge badge-ok">150+</span></div>
           <div class="mock-row"><span>Fideos Guiseros</span><span class="badge badge-warn">5 d&iacute;as</span></div>
           <div class="mock-row"><span>Leche Descremada</span><span class="badge badge-crit">Vencido</span></div>
-          <div class="mock-row"><span>Aceite de Girasol</span><span class="badge badge-ok">61 d&iacute;as</span></div>
-          <div class="mock-row" style="margin-top:6px; background:transparent; border:1px dashed var(--line); color:var(--paper-dim);"><span>&#9993; Alerta autom&aacute;tica</span><span>enviada &middot; 08:00</span></div>
+          <div class="mock-row" style="margin-top:6px; background:transparent; border:1px dashed var(--line); color:var(--paper-dim);"><span>&#128202; En uso real</span><span>farmacia &middot; Villa Mar&iacute;a</span></div>
         </div>
       </div>
 
@@ -424,9 +427,9 @@
           </ul>
         </div>
         <div class="stack-group">
-          <h5>Datos &amp; herramientas</h5>
+          <h5>Datos &amp; Deploy</h5>
           <ul>
-            <li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Git &amp; GitHub</li><li>Jira · Scrum</li>
+            <li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Docker</li><li>Railway · Vercel</li><li>Git &amp; GitHub</li>
           </ul>
         </div>
       </div>
@@ -458,3 +461,4 @@
 
 </body>
 </html>
+
