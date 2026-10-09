@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramiro Hernandez — Fullstack Developer (Java, Spring Boot, React, Next.js)</title>
+<meta name="description" content="Portfolio of Ramiro Hernandez, a fullstack developer in Argentina building complete systems with Java, Spring Boot, React and Next.js. Author of ControlSafe, in production at a retail pharmacy.">
+<meta name="author" content="Ramiro Hernandez">
+<meta name="theme-color" content="#12150f">
+<link rel="canonical" href="https://ramirohh.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2312150f'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='28' font-weight='700' fill='%236fcf97' text-anchor='middle'%3ERH%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ramiro Hernandez — Fullstack Developer (Java, Spring Boot, React, Next.js)">
+<meta property="og:description" content="Portfolio of Ramiro Hernandez, a fullstack developer in Argentina building complete systems with Java, Spring Boot, React and Next.js. Author of ControlSafe, in production at a retail pharmacy.">
+<meta property="og:url" content="https://ramirohh.github.io/">
+<meta property="og:image" content="https://ramirohh.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ramiro Hernandez — Fullstack Developer (Java, Spring Boot, React, Next.js)">
+<meta name="twitter:description" content="Portfolio of Ramiro Hernandez, a fullstack developer in Argentina building complete systems with Java, Spring Boot, React and Next.js. Author of ControlSafe, in production at a retail pharmacy.">
+<meta name="twitter:image" content="https://ramirohh.github.io/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ramiro Hernandez",
+  "jobTitle": "Fullstack Developer",
+  "url": "https://ramirohh.github.io/",
+  "email": "mailto:ramiroh.dev@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Villa María", "addressRegion": "Córdoba", "addressCountry": "AR"},
+  "alumniOf": "UTN FRVM (Universidad Tecnológica Nacional)",
+  "knowsAbout": ["Java", "Spring Boot", "Spring Security", "React", "Next.js", "TypeScript", "MySQL", "Docker"],
+  "sameAs": ["https://github.com/RamiroHH", "https://www.linkedin.com/in/ramiro-hernandez-945546222"]
+}
+</script>
+<script>
+  /* pick language before first paint: ?lang= > saved choice > browser language */
+  (function(){
+    var l='en';
+    try{var p=new URLSearchParams(location.search).get('lang');if(p==='es'||p==='en')l=p;else{
+      var s=null;try{s=localStorage.getItem('rh-lang');}catch(e){}
+      if(s==='es'||s==='en')l=s;else if((navigator.language||'').toLowerCase().indexOf('es')===0)l='es';
+    }}catch(e){}
+    document.documentElement.lang=l;
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12150f; --surface:#191d14; --surface-2:#202519;
+    --paper:#eceee1; --paper-dim:#b9bdac; --line:#33392a;
+    --mint:#6fcf97; --mint-dim:#4f9d70; --amber:#e3a857; --amber-dim:#c0903f;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:80px;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+  }
+  body{background:var(--ink);color:var(--paper);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:2px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* language switching */
+  html[lang="en"] .t-es{display:none;}
+  html[lang="es"] .t-en{display:none;}
+
+  .skip{position:absolute;left:-9999px;top:8px;background:var(--mint);color:#0e1109;padding:10px 14px;z-index:100;font-family:'IBM Plex Mono',monospace;font-size:13px;text-decoration:none;}
+  .skip:focus{left:8px;}
+
+  /* ---------- NAV ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(18,21,15,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;}
+  .brand{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--mint);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;}
+  .nav-right{display:flex;align-items:center;gap:22px;}
+  .navlinks{display:flex;gap:26px;font-size:13px;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;}
+  .navlinks a{text-decoration:none;color:var(--paper-dim);transition:color .2s ease;padding:6px 0;}
+  .navlinks a:hover{color:var(--mint);}
+  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:3px;padding:2px;}
+  .lang button{font-family:'IBM Plex Mono',monospace;font-size:12px;background:none;color:var(--paper-dim);border:0;padding:5px 9px;cursor:pointer;border-radius:2px;}
+  .lang button:hover{color:var(--paper);}
+  .lang button[aria-pressed="true"]{background:var(--mint);color:#0e1109;font-weight:600;}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--paper);width:40px;height:36px;border-radius:3px;cursor:pointer;font-size:16px;line-height:1;}
+  @media (max-width:760px){
+    .menu-btn{display:inline-flex;align-items:center;justify-content:center;}
+    .navlinks{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:6px 20px 14px;}
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:12px 0;font-size:14px;border-bottom:1px solid var(--line);}
+    .navlinks a:last-child{border-bottom:0;}
+    .nav-right{gap:10px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 0;position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:center;}
+  @media (max-width:800px){.hero-grid{grid-template-columns:1fr;}.hero{padding-top:56px;}}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--amber-dim);flex:none;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,6vw,62px);line-height:1.04;letter-spacing:-.01em;}
+  .role{margin-top:20px;font-size:18.5px;color:var(--paper-dim);max-width:48ch;}
+  .role strong{color:var(--mint);font-weight:600;}
+  .hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{font-family:'IBM Plex Mono',monospace;font-size:13px;padding:13px 22px;border-radius:var(--radius);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease,background .15s ease,border-color .15s ease;}
+  .btn-primary{background:var(--mint);color:#0e1109;font-weight:600;}
+  .btn-primary:hover{background:#83e0ab;transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--mint-dim);color:var(--mint);transform:translateY(-1px);}
+
+  .scanner{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:26px 22px;overflow:hidden;}
+  .scanner-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);display:flex;justify-content:space-between;gap:10px;margin-bottom:16px;}
+  .scanner-label .live{color:var(--mint);white-space:nowrap;}
+  .barcode{display:flex;align-items:flex-end;gap:3px;height:64px;margin-bottom:14px;position:relative;}
+  .barcode span{display:block;background:var(--paper-dim);opacity:.85;}
+  .scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--mint),transparent);box-shadow:0 0 8px var(--mint);animation:scan 2.6s ease-in-out infinite;}
+  @keyframes scan{0%,100%{top:2px;}50%{top:calc(100% - 4px);}}
+  .scanner-rows{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);display:grid;gap:6px;}
+  .scanner-rows .row{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:6px;}
+  .scanner-rows .row b{color:var(--paper);font-weight:500;text-align:right;}
+  .status-ok{color:var(--mint) !important;}
+  .status-warn{color:var(--amber) !important;}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line);}
+  .stat{padding:24px 24px 26px 0;}
+  .stat + .stat{padding-left:24px;border-left:1px solid var(--line);}
+  .stat .n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--mint);line-height:1.1;}
+  .stat .l{font-size:13.5px;color:var(--paper-dim);margin-top:4px;max-width:30ch;}
+  @media (max-width:700px){
+    .stats{grid-template-columns:1fr;margin-top:44px;}
+    .stat,.stat + .stat{padding:16px 0;border-left:0;}
+    .stat + .stat{border-top:1px solid var(--line);}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:76px 0;border-bottom:1px solid var(--line);}
+  @media (max-width:640px){section{padding:56px 0;}}
+  .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;}
+  .section-num{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:13px;}
+  .section-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:28px;line-height:1.2;}
+  .sub-head{margin-top:56px;}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+  .about-text p{color:var(--paper-dim);margin-bottom:16px;font-size:15.5px;}
+  .about-text strong{color:var(--paper);font-weight:600;}
+  .fact-list{display:grid;border-top:1px solid var(--line);align-content:start;}
+  .fact{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .fact .k{font-family:'IBM Plex Mono',monospace;color:var(--paper-dim);flex:none;}
+  .fact .v{color:var(--paper);text-align:right;}
+
+  /* experience timeline */
+  .timeline{border-left:1px solid var(--line);margin-left:5px;}
+  .job{position:relative;padding:0 0 40px 32px;}
+  .job:last-child{padding-bottom:0;}
+  .job::before{content:"";position:absolute;left:-6px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--mint);}
+  .job h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;line-height:1.3;}
+  .job h3 .co{color:var(--mint);}
+  .job .meta{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--amber);margin:6px 0 4px;display:block;}
+  .job .tech{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);margin-bottom:12px;display:block;}
+  .job ul{list-style:none;display:grid;gap:9px;max-width:72ch;}
+  .job li{display:flex;gap:10px;font-size:14.5px;color:var(--paper-dim);}
+  .job li::before{content:"›";color:var(--mint);font-weight:700;flex:none;}
+
+  /* featured project */
+  .project-feat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;}
+  .project-feat + .project-feat{margin-top:28px;}
+  @media (max-width:860px){.project-feat{grid-template-columns:1fr;padding:26px;gap:28px;}}
+  .project-feat h3{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;margin-bottom:8px;}
+  .kicker{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:block;}
+  .project-feat p.desc{color:var(--paper-dim);font-size:15px;margin-bottom:6px;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;border:1px solid var(--line);color:var(--paper-dim);padding:5px 10px;border-radius:20px;}
+  .feature-list{list-style:none;display:grid;gap:11px;}
+  .feature-list li{display:flex;gap:10px;font-size:14px;color:var(--paper-dim);}
+  .feature-list li::before{content:"›";color:var(--mint);font-weight:700;flex:none;}
+  .feature-list li b{color:var(--paper);font-weight:500;}
+  .private-note{margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber);border:1px dashed var(--amber-dim);padding:10px 14px;border-radius:4px;}
+  .private-note a{color:inherit;text-decoration:underline;}
+  .mock{background:var(--ink);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:10px;align-self:start;}
+  .mock-bar{display:flex;gap:6px;margin-bottom:6px;}
+  .mock-bar span{width:9px;height:9px;border-radius:50%;background:var(--line);}
+  .mock-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surface-2);border-radius:4px;padding:11px 14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--paper-dim);}
+  .mock-row b{color:var(--paper);font-weight:500;}
+  .mock-row > :first-child{flex:none;}
+  .mock-row > :last-child{text-align:right;}
+  .mock-note{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--paper-dim);opacity:.8;margin-top:2px;}
+  .badge{font-size:10.5px;padding:3px 8px;border-radius:20px;font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
+  .badge-ok{background:rgba(111,207,151,.12);color:var(--mint);}
+  .badge-warn{background:rgba(227,168,87,.14);color:var(--amber);}
+  .badge-crit{background:rgba(224,110,90,.14);color:#e8826f;}
+  .swatches{display:flex;gap:8px;}
+  .sw{flex:1;border-radius:4px;padding:26px 8px 8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;border:1px solid var(--line);}
+
+  /* other projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  @media (max-width:700px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{border:1px solid var(--line);border-radius:6px;padding:24px;transition:border-color .2s ease,transform .2s ease;}
+  .proj-card:hover{border-color:var(--mint-dim);transform:translateY(-2px);}
+  .proj-card h4{font-family:'Space Grotesk',sans-serif;font-size:18px;margin-bottom:8px;}
+  .proj-card .stack{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--amber);margin-bottom:12px;display:block;}
+  .proj-card p{font-size:14px;color:var(--paper-dim);margin-bottom:14px;}
+  .proj-card a{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--mint);text-decoration:none;}
+  .proj-card a:hover{text-decoration:underline;}
+  .proj-card .pill{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--paper-dim);}
+
+  /* stack */
+  .stack-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 28px;}
+  @media (max-width:760px){.stack-groups{grid-template-columns:1fr 1fr;}}
+  @media (max-width:460px){.stack-groups{grid-template-columns:1fr;}}
+  .stack-group h3{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .stack-group ul{list-style:none;display:grid;gap:8px;}
+  .stack-group li{font-size:14.5px;color:var(--paper);position:relative;padding-left:14px;}
+  .stack-group li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--mint);border-radius:50%;}
+  .stack-group li small{color:var(--paper-dim);font-size:12.5px;}
+
+  /* contact */
+  .contact{border-bottom:none;padding-bottom:96px;}
+  .contact h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4.4vw,44px);font-weight:700;max-width:24ch;line-height:1.1;margin-bottom:18px;}
+  .contact p.lead{color:var(--paper-dim);max-width:54ch;margin-bottom:32px;font-size:16px;}
+  .contact-links{display:flex;gap:14px;flex-wrap:wrap;}
+
+  footer{padding:28px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);flex-wrap:wrap;gap:10px;}
+  ::selection{background:var(--mint);color:#0e1109;}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span class="t-es" lang="es">Saltar al contenido</span><span class="t-en" lang="en">Skip to content</span></a>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#top" class="brand"><span class="dot"></span>ramiro.dev</a>
+      <div class="nav-right">
+        <div class="navlinks" id="navlinks">
+          <a href="#about"><span class="t-es" lang="es">Sobre mí</span><span class="t-en" lang="en">About</span></a>
+          <a href="#experience"><span class="t-es" lang="es">Experiencia</span><span class="t-en" lang="en">Experience</span></a>
+          <a href="#projects"><span class="t-es" lang="es">Proyectos</span><span class="t-en" lang="en">Projects</span></a>
+          <a href="#stack">Stack</a>
+          <a href="#contact"><span class="t-es" lang="es">Contacto</span><span class="t-en" lang="en">Contact</span></a>
+        </div>
+        <div class="lang" role="group" aria-label="Language / Idioma">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">&#9776;</button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="t-es" lang="es">Villa María, Argentina · Disponible para nuevas oportunidades</span><span class="t-en" lang="en">Villa María, Argentina · Open to new opportunities</span></div>
+          <h1>Ramiro<br>Hernandez</h1>
+          <p class="role"><strong>Fullstack Developer.</strong> <span class="t-es" lang="es">Construyo sistemas completos de punta a punta: desde la arquitectura backend en Java y Spring Boot hasta las interfaces en React y Next.js que la gente usa de verdad.</span><span class="t-en" lang="en">I build complete systems end to end, from Java and Spring Boot backend architecture to the React and Next.js interfaces people actually use.</span></p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects"><span class="t-es" lang="es">Ver proyectos</span><span class="t-en" lang="en">View projects</span></a>
+            <a class="btn btn-ghost" href="#contact"><span class="t-es" lang="es">Contactarme</span><span class="t-en" lang="en">Get in touch</span></a>
+          </div>
+        </div>
+
+        <div class="scanner" aria-hidden="true">
+          <div class="scanner-label"><span><span class="t-es" lang="es">ControlSafe — vista demo</span><span class="t-en" lang="en">ControlSafe — demo view</span></span><span class="live">&#9679; demo</span></div>
+          <div class="barcode">
+            <div class="scanline"></div>
+          <span style="width:3px;height:100%"></span>
+          <span style="width:6px;height:70%"></span>
+          <span style="width:2px;height:100%"></span>
+          <span style="width:4px;height:55%"></span>
+          <span style="width:2px;height:90%"></span>
+          <span style="width:8px;height:40%"></span>
+          <span style="width:3px;height:100%"></span>
+          <span style="width:2px;height:65%"></span>
+          <span style="width:5px;height:85%"></span>
+          <span style="width:2px;height:50%"></span>
+          <span style="width:6px;height:100%"></span>
+          <span style="width:3px;height:75%"></span>
+          <span style="width:2px;height:95%"></span>
+          <span style="width:4px;height:60%"></span>
+          <span style="width:2px;height:100%"></span>
+          </div>
+          <div class="scanner-rows">
+            <div class="row"><span><span class="t-es" lang="es">Lote #A231 — Leche 1L</span><span class="t-en" lang="en">Batch #A231 — Milk 1L</span></span><b class="status-ok"><span class="t-es" lang="es">OK · 42 días</span><span class="t-en" lang="en">OK · 42 days</span></b></div>
+            <div class="row"><span><span class="t-es" lang="es">Lote #B097 — Yogur nat.</span><span class="t-en" lang="en">Batch #B097 — Plain yogurt</span></span><b class="status-warn"><span class="t-es" lang="es">Vence en 3 días</span><span class="t-en" lang="en">Expires in 3 days</span></b></div>
+            <div class="row"><span><span class="t-es" lang="es">Alertas por email</span><span class="t-en" lang="en">Email alerts</span></span><b><span class="t-es" lang="es">automáticas</span><span class="t-en" lang="en">automatic</span></b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="n"><span class="t-es" lang="es">En producción</span><span class="t-en" lang="en">In production</span></div><div class="l"><span class="t-es" lang="es">ControlSafe, en uso diario en una sucursal de Farmacity</span><span class="t-en" lang="en">ControlSafe, used daily at a Farmacity pharmacy branch</span></div></div>
+        <div class="stat"><div class="n">253 · 313</div><div class="l"><span class="t-es" lang="es">productos y vencimientos reales gestionados en el sistema</span><span class="t-en" lang="en">real products and expiration records managed in the system</span></div></div>
+        <div class="stat"><div class="n">10 / 10</div><div class="l"><span class="t-es" lang="es">nota del Trabajo Final, Técnico Universitario en Programación (UTN)</span><span class="t-en" lang="en">capstone grade, University Technician in Programming (UTN)</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">00</span><h2 class="section-title" id="about-h"><span class="t-es" lang="es">Sobre mí</span><span class="t-en" lang="en">About me</span></h2></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p><span class="t-es" lang="es"><strong>Vengo del otro lado del mostrador.</strong> Trabajé años en atención al público en una farmacia y vi de cerca un problema que casi ninguna herramienta resuelve bien: controlar a mano los vencimientos de los productos. Construí la solución yo mismo: ControlSafe, mi Trabajo Final de carrera (nota 10/10), hoy en producción en una sucursal de Farmacity en Villa María. El equipo de la sucursal planea proponerlo a la franquicia en Córdoba.</span><span class="t-en" lang="en"><strong>I come from the other side of the counter.</strong> I spent years working customer-facing in a pharmacy and saw up close a problem few tools solve well: tracking product expiration dates by hand. I built the solution myself: ControlSafe, my capstone project (graded 10/10), now running in production at a Farmacity branch in Villa María. The branch team plans to propose it to the franchise in Córdoba.</span></p>
+          <p><span class="t-es" lang="es">Me especializo en <strong>Java y Spring Boot</strong> del lado del backend, con <strong>React</strong> y <strong>Next.js</strong> para las interfaces. Me importa el panorama completo: diseñar la arquitectura, pensar roles y permisos, y entregar una pantalla que alguien pueda usar sin fricción.</span><span class="t-en" lang="en">I specialize in <strong>Java and Spring Boot</strong> on the backend, with <strong>React</strong> and <strong>Next.js</strong> on the frontend. I care about the whole picture: designing the architecture, thinking through roles and permissions, and shipping a screen someone can use without friction.</span></p>
+          <p><span class="t-es" lang="es">Trabajo con arquitectura en capas, código limpio y Scrum cuando es en equipo. También uso herramientas de IA como Claude Code en mi día a día, como acelerador y no como reemplazo: leo, pruebo y me hago cargo de todo lo que entrego.</span><span class="t-en" lang="en">I work with layered architecture, clean code and Scrum when on a team. I also use AI tools such as Claude Code in my daily workflow as an accelerator, not a substitute: I read, test and take ownership of everything I ship.</span></p>
+        </div>
+        <div class="fact-list mono">
+          <div class="fact"><span class="k"><span class="t-es" lang="es">Formación</span><span class="t-en" lang="en">Education</span></span><span class="v"><span class="t-es" lang="es">Técnico Univ. en Programación</span><span class="t-en" lang="en">University Technician in Programming</span><br>UTN FRVM · <span class="t-es" lang="es">Egresado sept. 2026</span><span class="t-en" lang="en">Graduated Sept 2026</span></span></div>
+          <div class="fact"><span class="k"><span class="t-es" lang="es">Foco</span><span class="t-en" lang="en">Focus</span></span><span class="v">Java · Spring Boot · React · Next.js</span></div>
+          <div class="fact"><span class="k"><span class="t-es" lang="es">Idiomas</span><span class="t-en" lang="en">Languages</span></span><span class="v"><span class="t-es" lang="es">Español nativo</span><span class="t-en" lang="en">Spanish — native</span><br><span class="t-es" lang="es">Inglés B2 (lectura técnica y documentación)</span><span class="t-en" lang="en">English — B2 (technical reading &amp; documentation)</span></span></div>
+          <div class="fact"><span class="k"><span class="t-es" lang="es">Ubicación</span><span class="t-en" lang="en">Location</span></span><span class="v">Villa María, Córdoba, AR</span></div>
+          <div class="fact"><span class="k"><span class="t-es" lang="es">Huso horario</span><span class="t-en" lang="en">Time zone</span></span><span class="v">UTC−3 (<span class="t-es" lang="es">Argentina</span><span class="t-en" lang="en">Argentina</span>)</span></div>
+          <div class="fact"><span class="k"><span class="t-es" lang="es">Modalidad</span><span class="t-en" lang="en">Work mode</span></span><span class="v"><span class="t-es" lang="es">Remoto · Híbrido · Presencial</span><span class="t-en" lang="en">Remote · Hybrid · On-site</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">01</span><h2 class="section-title" id="exp-h"><span class="t-es" lang="es">Experiencia</span><span class="t-en" lang="en">Experience</span></h2></div>
+      <div class="timeline">
+        <div class="job">
+          <h3><span class="t-es" lang="es">QA &amp; Frontend Developer</span><span class="t-en" lang="en">QA &amp; Frontend Developer</span> <span class="co">· MedOS</span></h3>
+          <span class="meta"><span class="t-es" lang="es">Freelance · Remoto · Sep 2026 – Actualidad</span><span class="t-en" lang="en">Freelance · Remote · Sep 2026 – Present</span></span>
+          <span class="tech">TypeScript · AWS serverless · Terraform</span>
+          <ul>
+            <li><span class="t-es" lang="es">QA manual de una plataforma de gestión para consultorios médicos (medos.mx) con cinco roles: administrador, doctor, recepción, paciente y cuidador.</span><span class="t-en" lang="en">Manual QA of a medical-practice management platform (medos.mx) across five roles: admin, doctor, front desk, patient and caregiver.</span></li>
+            <li><span class="t-es" lang="es">Pruebas de permisos y casos límite (por ejemplo, acceso compartido a un paciente entre doctores). Hallazgos en Todoist clasificados por tipo, prioridad (P1–P4) y rol afectado.</span><span class="t-en" lang="en">Permission and edge-case testing (e.g. shared patient access between doctors). Findings tracked in Todoist by type, priority (P1–P4) and affected role.</span></li>
+            <li><span class="t-es" lang="es">Correcciones de frontend sobre lo detectado en QA: layouts responsive, notificaciones tipo toast y estilos consistentes de botones y diálogos.</span><span class="t-en" lang="en">Frontend fixes for issues found in QA: responsive layouts, toast notifications, and consistent button and dialog styles.</span></li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3><span class="t-es" lang="es">Web Developer y contenido digital</span><span class="t-en" lang="en">Web Developer &amp; Digital Content</span> <span class="co">· Conexión Legal Arizona</span></h3>
+          <span class="meta"><span class="t-es" lang="es">Freelance · Remoto · Sep 2026 – Actualidad</span><span class="t-en" lang="en">Freelance · Remote · Sep 2026 – Present</span></span>
+          <span class="tech">Next.js · TypeScript · Tailwind CSS · Netlify</span>
+          <ul>
+            <li><span class="t-es" lang="es">Diseño y desarrollo completo del sitio web de un estudio jurídico en Phoenix, Arizona: en español, mobile-first y con páginas de casos generadas desde datos.</span><span class="t-en" lang="en">Designed and built the website of a law office in Phoenix, Arizona end to end: Spanish-language, mobile-first, with case pages generated from data.</span></li>
+            <li><span class="t-es" lang="es">Infraestructura de soporte: dominio y DNS, correo corporativo en Microsoft 365 y despliegues en Netlify desde GitHub.</span><span class="t-en" lang="en">Supporting infrastructure: domain and DNS, business email on Microsoft 365, and Netlify deployments from GitHub.</span></li>
+            <li><span class="t-es" lang="es">Piezas gráficas, redes sociales y videos con avatar de IA, con rondas de revisión iterativas junto al cliente.</span><span class="t-en" lang="en">Brand graphics, social media and AI-avatar videos, with iterative review rounds alongside the client.</span></li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3><span class="t-es" lang="es">Desarrollador único y autor</span><span class="t-en" lang="en">Solo Developer &amp; Author</span> <span class="co">· ControlSafe</span></h3>
+          <span class="meta"><span class="t-es" lang="es">Proyecto propio · En producción · 2026 – Actualidad</span><span class="t-en" lang="en">Independent project · In production · 2026 – Present</span></span>
+          <span class="tech">Java 21 · Spring Boot 4 · React 18 · MySQL · Docker</span>
+          <ul>
+            <li><span class="t-es" lang="es">Diseñé, desarrollé y desplegué un sistema completo de gestión de vencimientos, en uso diario en una farmacia. Sigo iterando con el feedback de usuarios reales (detalle más abajo).</span><span class="t-en" lang="en">Designed, built and deployed a complete expiration-date management system used daily at a pharmacy. I keep iterating on it with feedback from real users (details below).</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">02</span><h2 class="section-title" id="proj-h"><span class="t-es" lang="es">Proyectos destacados</span><span class="t-en" lang="en">Featured projects</span></h2></div>
+
+      <article class="project-feat">
+        <div>
+          <span class="kicker"><span class="t-es" lang="es">Trabajo Final de carrera (nota 10/10) · Proyecto individual</span><span class="t-en" lang="en">Capstone project (graded 10/10) · Solo project</span></span>
+          <h3>ControlSafe</h3>
+          <p class="desc"><span class="t-es" lang="es">Sistema de gestión de vencimientos para comercios minoristas, diseñado y desarrollado en solitario de punta a punta: backend, frontend y toda la lógica de negocio. En producción y en uso activo en la sucursal 175 de Farmacity (Villa María).</span><span class="t-en" lang="en">Expiration-date management system for retail stores, designed and built solo end to end: backend, frontend and all the business logic. In production and actively used at Farmacity branch 175 (Villa María).</span></p>
+          <div class="tag-row"><span class="tag">Java 21</span><span class="tag">Spring Boot 4</span><span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">JPA/Hibernate</span><span class="tag">MySQL</span><span class="tag">React 18</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">iText</span><span class="tag">SendGrid</span><span class="tag">Docker</span><span class="tag">Railway</span><span class="tag">Vercel</span></div>
+          <ul class="feature-list">
+            <li><span class="t-es" lang="es"><b>Autenticación y roles</b> con Spring Security + JWT (ADMIN / OPERADOR); credenciales y secretos por variables de entorno.</span><span class="t-en" lang="en"><b>Authentication and roles</b> with Spring Security + JWT (ADMIN / OPERATOR); credentials and secrets via environment variables.</span></li>
+            <li><span class="t-es" lang="es"><b>Scheduler diario</b> que actualiza estados de vencimiento y envía alertas por email (SendGrid), generales y personalizadas por producto o departamento, con frecuencia configurable.</span><span class="t-en" lang="en"><b>Daily scheduler</b> that updates expiration statuses and sends email alerts (SendGrid), both general and custom per product or department, with configurable frequency.</span></li>
+            <li><span class="t-es" lang="es"><b>Autocompletado por código de barras</b> con la API pública Open Food Facts, y soporte para escáner USB.</span><span class="t-en" lang="en"><b>Barcode auto-fill</b> using the public Open Food Facts API, with USB scanner support.</span></li>
+            <li><span class="t-es" lang="es"><b>Panel de administración</b> de usuarios y departamentos: crear, activar/desactivar y resetear accesos.</span><span class="t-en" lang="en"><b>Admin panel</b> for users and departments: create, activate/deactivate and reset access.</span></li>
+            <li><span class="t-es" lang="es"><b>Reportes PDF</b> con filtros dinámicos (iText) e <b>historial de trazabilidad</b> de acciones por usuario y puesto.</span><span class="t-en" lang="en"><b>PDF reports</b> with dynamic filters (iText) and a full <b>audit trail</b> of actions by user and workstation.</span></li>
+            <li><span class="t-es" lang="es"><b>Despliegue en producción:</b> backend con Docker en Railway (CI/CD desde GitHub) junto a MySQL, y frontend en Vercel.</span><span class="t-en" lang="en"><b>Production deployment:</b> Dockerized backend on Railway (CI/CD from GitHub) with MySQL, and frontend on Vercel.</span></li>
+          </ul>
+          <div class="private-note">&#128274; <span class="t-es" lang="es">Repositorios privados. Demo pública en</span><span class="t-en" lang="en">Private repositories. Public demo at</span> <a href="https://controlsafe.vercel.app" target="_blank" rel="noopener">controlsafe.vercel.app</a><span class="t-es" lang="es">, código disponible a pedido en entrevista.</span><span class="t-en" lang="en">; code available on request during an interview.</span></div>
+        </div>
+
+        <div class="mock" aria-hidden="true">
+          <div class="mock-bar"><span></span><span></span><span></span></div>
+          <div class="mock-row"><span><span class="t-es" lang="es">Total de productos</span><span class="t-en" lang="en">Total products</span></span><span class="badge badge-ok">253</span></div>
+          <div class="mock-row"><span><span class="t-es" lang="es">Vencimientos gestionados</span><span class="t-en" lang="en">Expirations managed</span></span><span class="badge badge-ok">313</span></div>
+          <div class="mock-row"><span><span class="t-es" lang="es">Fideos Guiseros</span><span class="t-en" lang="en">Egg noodles</span></span><span class="badge badge-warn"><span class="t-es" lang="es">5 días</span><span class="t-en" lang="en">5 days</span></span></div>
+          <div class="mock-row"><span><span class="t-es" lang="es">Leche descremada</span><span class="t-en" lang="en">Skim milk</span></span><span class="badge badge-crit"><span class="t-es" lang="es">Vencido</span><span class="t-en" lang="en">Expired</span></span></div>
+          <div class="mock-row" style="background:transparent;border:1px dashed var(--line);"><span><span class="t-es" lang="es">En uso real</span><span class="t-en" lang="en">In real use</span></span><span>Farmacity 175 · Villa María</span></div>
+          <div class="mock-note"><span class="t-es" lang="es">Vista ilustrativa. Los totales son cifras reales de producción.</span><span class="t-en" lang="en">Illustrative view. Totals are real production figures.</span></div>
+        </div>
+      </article>
+
+      <article class="project-feat">
+        <div>
+          <span class="kicker"><span class="t-es" lang="es">Proyecto para cliente · Freelance · 2026</span><span class="t-en" lang="en">Client project · Freelance · 2026</span></span>
+          <h3>Conexión Legal Arizona</h3>
+          <p class="desc"><span class="t-es" lang="es">Sitio web para un estudio jurídico de lesiones personales en Phoenix, Arizona, dirigido a la comunidad hispanohablante. Diseñado y desarrollado de punta a punta: estructura de contenido, sistema de marca, despliegue, dominio y correo.</span><span class="t-en" lang="en">Website for a personal-injury law office in Phoenix, Arizona, serving the Spanish-speaking community. Designed and built end to end: content structure, brand system, deployment, domain and email.</span></p>
+          <div class="tag-row"><span class="tag">Next.js 16</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS v4</span><span class="tag">framer-motion</span><span class="tag">Netlify</span><span class="tag">Microsoft 365</span><span class="tag">Namecheap DNS</span></div>
+          <ul class="feature-list">
+            <li><span class="t-es" lang="es"><b>Páginas de casos dinámicas</b> (<code>/casos/[caso]</code>) generadas desde un único archivo de datos: agregar un área de práctica es agregar una entrada.</span><span class="t-en" lang="en"><b>Dynamic case pages</b> (<code>/casos/[caso]</code>) generated from a single data file: adding a practice area means adding one entry.</span></li>
+            <li><span class="t-es" lang="es"><b>Interfaz oscura guiada por la marca:</b> layout Bento con toques de glassmorfismo, paleta oficial y tipografía Geist.</span><span class="t-en" lang="en"><b>Brand-driven dark UI:</b> Bento-grid layout with touches of glassmorphism, the official palette and Geist typography.</span></li>
+            <li><span class="t-es" lang="es"><b>Botón flotante de WhatsApp</b> que aparece al hacer scroll (IntersectionObserver) y un helper reutilizable para los links de contacto.</span><span class="t-en" lang="en"><b>Floating WhatsApp button</b> that appears on scroll (IntersectionObserver), plus a reusable helper for contact links.</span></li>
+            <li><span class="t-es" lang="es"><b>Rendimiento y SEO:</b> optimización de imágenes con <code>next/image</code> (sizes, quality, lazy loading) y metadata por página.</span><span class="t-en" lang="en"><b>Performance and SEO:</b> image optimization with <code>next/image</code> (sizes, quality, lazy loading) and per-page metadata.</span></li>
+            <li><span class="t-es" lang="es"><b>Accesibilidad y responsive:</b> contraste, foco visible, atributos ARIA, soporte de <code>prefers-reduced-motion</code> y enfoque mobile-first.</span><span class="t-en" lang="en"><b>Accessibility and responsive design:</b> contrast, visible focus states, ARIA attributes, <code>prefers-reduced-motion</code> support and a mobile-first approach.</span></li>
+            <li><span class="t-es" lang="es"><b>Flujo de trabajo:</b> ramas de Git con commits atómicos, deploys por rama en Netlify y documentos de reglas de producto y diseño.</span><span class="t-en" lang="en"><b>Workflow:</b> Git branches with atomic commits, Netlify branch deploys, and written product and design rules.</span></li>
+          </ul>
+          <div class="private-note">&#128274; <span class="t-es" lang="es">Repositorio privado. Recorrido del código disponible a pedido.</span><span class="t-en" lang="en">Private repository. Code walkthrough available on request.</span></div>
+        </div>
+
+        <div class="mock" aria-hidden="true">
+          <div class="mock-bar"><span></span><span></span><span></span></div>
+          <div class="swatches">
+            <div class="sw" style="background:#00C9FF;color:#04202a;">#00C9FF</div>
+            <div class="sw" style="background:#FACD08;color:#2a2100;">#FACD08</div>
+            <div class="sw" style="background:#000;color:#b9bdac;">#000000</div>
+          </div>
+          <div class="mock-row"><span>/</span><b><span class="t-es" lang="es">Inicio · secciones Bento</span><span class="t-en" lang="en">Home · Bento sections</span></b></div>
+          <div class="mock-row"><span>/casos/[caso]</span><b><span class="t-es" lang="es">desde datos</span><span class="t-en" lang="en">from data</span></b></div>
+          <div class="mock-row"><span>WhatsApp CTA</span><b>IntersectionObserver</b></div>
+          <div class="mock-row"><span>SEO</span><b><span class="t-es" lang="es">metadata por página</span><span class="t-en" lang="en">per-page metadata</span></b></div>
+          <div class="mock-note"><span class="t-es" lang="es">Estructura simplificada y paleta de marca del cliente.</span><span class="t-en" lang="en">Simplified structure and the client's brand palette.</span></div>
+        </div>
+      </article>
+
+      <h2 class="section-title sub-head" id="other-h" style="font-size:22px;margin-bottom:24px;"><span class="t-es" lang="es">Otros proyectos</span><span class="t-en" lang="en">More projects</span></h2>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;margin-bottom:8px;">BodyPainting</h3>
+          <span class="stack">Java · Spring Boot 3 · React 18 · PostgreSQL</span>
+          <p><span class="t-es" lang="es">E-commerce fullstack desarrollado en equipo con Scrum (3 sprints): JWT con roles, carrito, cupones, notificaciones por email y reportes de stock.</span><span class="t-en" lang="en">Fullstack e-commerce built in a team with Scrum (3 sprints): JWT with roles, cart, coupons, email notifications and stock reports.</span></p>
+          <a href="https://github.com/RamiroHH/BodyPainting" target="_blank" rel="noopener"><span class="t-es" lang="es">Ver en GitHub</span><span class="t-en" lang="en">View on GitHub</span> &rarr;</a>
+        </div>
+        <div class="proj-card">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;margin-bottom:8px;"><span class="t-es" lang="es">Prode Mundial 2026</span><span class="t-en" lang="en">World Cup 2026 Predictor</span></h3>
+          <span class="stack">Java 21 · Spring Boot 4 · React + Vite · MySQL · JWT</span>
+          <p><span class="t-es" lang="es">Proyecto universitario en equipo: juego de pronósticos del Mundial 2026 con API protegida por JWT, lógica de asignación de puntos e historial de partidos por equipo.</span><span class="t-en" lang="en">University team project: a World Cup 2026 prediction game with a JWT-secured API, points-assignment logic and per-team match history.</span></p>
+          <span class="pill"><span class="t-es" lang="es">Proyecto académico</span><span class="t-en" lang="en">Academic project</span></span>
+        </div>
+        <div class="proj-card">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;margin-bottom:8px;">PizzaLine</h3>
+          <span class="stack">JavaScript · HTML · CSS · FastAPI (external)</span>
+          <p><span class="t-es" lang="es">Aplicación web que consume una API externa, con buscador dinámico y lógica de carrito completa. Integración frontend-backend construida desde cero.</span><span class="t-en" lang="en">Web app consuming an external API, with dynamic search and complete cart logic. Frontend-to-backend integration built from scratch.</span></p>
+          <a href="https://github.com/RamiroHH" target="_blank" rel="noopener"><span class="t-es" lang="es">Perfil de GitHub</span><span class="t-en" lang="en">GitHub profile</span> &rarr;</a>
+        </div>
+        <div class="proj-card">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;margin-bottom:8px;"><span class="t-es" lang="es">Gestión de Fichajes Deportivos</span><span class="t-en" lang="en">Sports Registration Manager</span></h3>
+          <span class="stack">Java · MySQL</span>
+          <p><span class="t-es" lang="es">Sistema de persistencia para clubes: gestión de jugadores, temporadas, estadísticas y ranking.</span><span class="t-en" lang="en">Persistence system for sports clubs: players, seasons, statistics and rankings.</span></p>
+          <a href="https://github.com/RamiroHH" target="_blank" rel="noopener"><span class="t-es" lang="es">Perfil de GitHub</span><span class="t-en" lang="en">GitHub profile</span> &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" aria-labelledby="stack-h">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">03</span><h2 class="section-title" id="stack-h"><span class="t-es" lang="es">Stack técnico</span><span class="t-en" lang="en">Tech stack</span></h2></div>
+      <div class="stack-groups">
+        <div class="stack-group"><h3><span class="t-es" lang="es">Lenguajes</span><span class="t-en" lang="en">Languages</span></h3><ul><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li><li><span class="t-es" lang="es">Python <small>(académico)</small></span><span class="t-en" lang="en">Python <small>(coursework)</small></span></li></ul></div>
+        <div class="stack-group"><h3>Backend</h3><ul><li>Spring Boot 4</li><li>Spring Security · JWT</li><li>JPA / Hibernate</li><li><span class="t-es" lang="es">APIs REST · DTOs</span><span class="t-en" lang="en">REST APIs · DTOs</span></li><li>iText · SendGrid</li></ul></div>
+        <div class="stack-group"><h3>Frontend</h3><ul><li>React 18</li><li>Next.js</li><li>Tailwind CSS</li><li>Vite</li><li>HTML · CSS</li></ul></div>
+        <div class="stack-group"><h3><span class="t-es" lang="es">Datos y Cloud</span><span class="t-en" lang="en">Data &amp; Cloud</span></h3><ul><li>MySQL · PostgreSQL · MongoDB</li><li>Docker</li><li>Railway · Vercel · Netlify</li><li>CI/CD (GitHub)</li><li><span class="t-es" lang="es">AWS serverless · Terraform <small>(vía MedOS)</small></span><span class="t-en" lang="en">AWS serverless · Terraform <small>(via MedOS)</small></span></li></ul></div>
+        <div class="stack-group"><h3><span class="t-es" lang="es">Herramientas</span><span class="t-en" lang="en">Tools</span></h3><ul><li>Git · GitHub</li><li>Jira · Scrum</li><li>Bruno (API testing)</li><li>IntelliJ IDEA · VS Code</li><li><span class="t-es" lang="es">Linux · terminal</span><span class="t-en" lang="en">Linux · terminal</span></li></ul></div>
+        <div class="stack-group"><h3><span class="t-es" lang="es">QA y flujo de trabajo</span><span class="t-en" lang="en">QA &amp; workflow</span></h3><ul><li><span class="t-es" lang="es">QA manual</span><span class="t-en" lang="en">Manual QA</span></li><li><span class="t-es" lang="es">Pruebas de permisos y casos límite</span><span class="t-en" lang="en">Permission &amp; edge-case testing</span></li><li><span class="t-es" lang="es">Reporte y priorización de bugs</span><span class="t-en" lang="en">Bug reporting &amp; triage</span></li><li><span class="t-es" lang="es">Desarrollo asistido por IA (Claude Code)</span><span class="t-en" lang="en">AI-assisted development (Claude Code)</span></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num mono">04</span><h2 class="section-title" id="contact-h"><span class="t-es" lang="es">Contacto</span><span class="t-en" lang="en">Contact</span></h2></div>
+      <h3><span class="t-es" lang="es">¿Charlamos sobre tu equipo o tu proyecto?</span><span class="t-en" lang="en">Shall we talk about your team or project?</span></h3>
+      <p class="lead"><span class="t-es" lang="es">Busco mi primera experiencia formal como desarrollador y estoy abierto a trabajo freelance. Si mi perfil encaja con lo que estás armando, escribime: respondo rápido. Trabajo desde Argentina (UTC−3), cómodo con modalidad remota y asincrónica.</span><span class="t-en" lang="en">I'm looking for my first formal role as a developer and I'm open to freelance work. If my profile fits what you're building, write to me: I reply quickly. I work from Argentina (UTC−3), comfortable with remote and asynchronous collaboration.</span></p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:ramiroh.dev@gmail.com"><span class="t-es" lang="es">Enviar email</span><span class="t-en" lang="en">Send email</span></a>
+        <a class="btn btn-ghost" href="https://github.com/RamiroHH" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ramiro-hernandez-945546222" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ramiro Hernandez</span>
+    <span>Villa María, Córdoba, Argentina</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var T={en:{title:'Ramiro Hernandez — Fullstack Developer (Java, Spring Boot, React, Next.js)',desc:'Portfolio of Ramiro Hernandez, a fullstack developer in Argentina building complete systems with Java, Spring Boot, React and Next.js. Author of ControlSafe, in production at a retail pharmacy.'},es:{title:'Ramiro Hernandez — Desarrollador Fullstack (Java, Spring Boot, React, Next.js)',desc:'Portfolio de Ramiro Hernandez, desarrollador fullstack en Argentina. Construyo sistemas completos con Java, Spring Boot, React y Next.js. Autor de ControlSafe, en producción en una farmacia.'}};
+  var html=document.documentElement;
+  function apply(l,save){
+    html.lang=l;
+    document.title=T[l].title;
+    var m=document.querySelector('meta[name="description"]');if(m)m.setAttribute('content',T[l].desc);
+    var btns=document.querySelectorAll('[data-set-lang]');
+    for(var i=0;i<btns.length;i++)btns[i].setAttribute('aria-pressed',btns[i].getAttribute('data-set-lang')===l?'true':'false');
+    if(save){try{localStorage.setItem('rh-lang',l);}catch(e){}}
+  }
+  apply(html.lang==='es'?'es':'en',false);
+  var btns=document.querySelectorAll('[data-set-lang]');
+  for(var i=0;i<btns.length;i++)btns[i].addEventListener('click',function(){apply(this.getAttribute('data-set-lang'),true);});
+
+  var menu=document.getElementById('menuBtn'),links=document.getElementById('navlinks');
+  menu.addEventListener('click',function(){
+    var open=links.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');menu.setAttribute('aria-expanded','false');}
+  });
+})();
+</script>
+</body>
+</html>
